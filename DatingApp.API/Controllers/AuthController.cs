@@ -17,7 +17,7 @@ namespace DatingApp.API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly IAuthRepository _repo;
-        private readonly IConfiguration _config;        
+        private readonly IConfiguration _config;
 
         public AuthController(IAuthRepository repo, IConfiguration config)
         {
@@ -52,7 +52,7 @@ namespace DatingApp.API.Controllers
             var expireDate = DateTime.Now.AddDays(1);
             var creds = createCredentials();
 
-             var tokenDescriptor = new SecurityTokenDescriptor() { Subject = claims, Expires = expireDate, SigningCredentials = creds };
+            var tokenDescriptor = new SecurityTokenDescriptor() { Subject = claims, Expires = expireDate, SigningCredentials = creds };
             var tokenHandler = new JwtSecurityTokenHandler();
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
